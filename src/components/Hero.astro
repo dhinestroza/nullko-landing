@@ -1,0 +1,224 @@
+---
+---
+<section class="hero">
+  <div class="hero__grid-bg"></div>
+
+  <div class="hero__inner">
+    <div class="hero__badge" data-reveal data-delay="0">
+      <span class="hero__dot"></span>
+      Disponibles para nuevos proyectos
+    </div>
+
+    <h1 class="hero__title" data-reveal data-delay="100">
+      Construimos el<br/>
+      software que tu<br/>
+      <span class="hero__title-accent">empresa necesita.</span>
+    </h1>
+
+    <p class="hero__sub" data-reveal data-delay="200">
+      Desarrollo web, móvil y empresarial para equipos<br class="desktop-only"/>
+      que no se conforman con lo genérico.
+    </p>
+
+    <div class="hero__actions" data-reveal data-delay="300">
+      <a href="#contacto" class="btn btn--primary">Iniciar proyecto →</a>
+      <a href="#servicios" class="btn btn--ghost">Ver servicios</a>
+    </div>
+
+    <div class="hero__stats" data-reveal data-delay="400">
+      <div class="hero__stat">
+        <span class="hero__stat-num">Web</span>
+        <span class="hero__stat-label">móvil y empresarial</span>
+      </div>
+      <div class="hero__divider"></div>
+      <div class="hero__stat">
+        <span class="hero__stat-num">LATAM</span>
+        <span class="hero__stat-label">enfoque regional</span>
+      </div>
+      <div class="hero__divider"></div>
+      <div class="hero__stat">
+        <span class="hero__stat-num">100%</span>
+        <span class="hero__stat-label">código a medida</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__scroll" aria-hidden="true">
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 8rem 2rem 6rem;
+  }
+
+  .hero__grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.35;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(0,229,160,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero__inner {
+    position: relative;
+    max-width: 900px;
+    text-align: center;
+    width: 100%;
+    padding-bottom: 5rem;
+  }
+
+  .hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--subtle);
+    border: 1px solid var(--border);
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero__dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+  }
+
+  .hero__title {
+    font-family: var(--font-head);
+    font-size: clamp(2.4rem, 6vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.75rem;
+    color: var(--text);
+  }
+  .hero__title-accent { color: var(--accent); }
+
+  .hero__sub {
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    color: var(--subtle);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+  }
+
+  .btn {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+    cursor: none;
+  }
+  .btn--primary {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 500;
+  }
+  .btn--primary:hover { background: #00ffb3; }
+  .btn--ghost {
+    border: 1px solid var(--border);
+    color: var(--subtle);
+  }
+  .btn--ghost:hover { border-color: var(--muted); color: var(--text); }
+
+  .hero__stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .hero__stat { text-align: center; }
+  .hero__stat-num {
+    display: block;
+    font-family: var(--font-head);
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-weight: 800;
+    color: var(--text);
+  }
+  .hero__stat-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--subtle);
+    max-width: 120px;
+    display: block;
+    line-height: 1.4;
+    margin-top: 0.25rem;
+  }
+  .hero__divider {
+    width: 1px; height: 40px;
+    background: var(--border);
+  }
+
+  /* Solo línea animada, sin texto "scroll" */
+  .hero__scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .hero__scroll-line {
+    width: 1px; height: 44px;
+    background: linear-gradient(to bottom, var(--muted), transparent);
+    animation: scrollLine 2s ease infinite;
+  }
+  @keyframes scrollLine {
+    0%   { transform: scaleY(0); transform-origin: top; }
+    50%  { transform: scaleY(1); transform-origin: top; }
+    51%  { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  .desktop-only { display: initial; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 8rem 1.25rem 5rem; }
+    .hero__inner { padding-bottom: 3rem; }
+    .hero__stats { gap: 1.5rem; }
+    .hero__divider { display: none; }
+    .desktop-only { display: none; }
+    .hero__scroll { display: none; }
+  }
+</style>

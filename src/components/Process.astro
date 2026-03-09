@@ -1,0 +1,161 @@
+---
+const steps = [
+  {
+    num: "01",
+    title: "Entendemos tu negocio",
+    desc: "Antes de escribir una línea de código, nos sentamos contigo a entender el problema real. Nada de soluciones genéricas — cada proyecto parte de una conversación honesta.",
+    highlight: "Sin suposiciones. Sin atajos.",
+  },
+  {
+    num: "02",
+    title: "Diseñamos la solución",
+    desc: "Definimos la arquitectura, los flujos y el diseño visual. Te mostramos mockups reales antes de comenzar para que sepas exactamente qué vas a recibir.",
+    highlight: "Lo ves antes de pagarlo.",
+  },
+  {
+    num: "03",
+    title: "Desarrollamos rápido",
+    desc: "Usamos las herramientas más modernas para acelerar el desarrollo sin sacrificar calidad. Entregas más rápidas, código limpio y pruebas automáticas en cada etapa.",
+    highlight: "Velocidad sin comprometer la calidad.",
+  },
+  {
+    num: "04",
+    title: "Lanzamos y acompañamos",
+    desc: "El lanzamiento no es el final. Te acompañamos en la puesta en producción, resolvemos imprevistos y te dejamos con un producto que puedes mantener y escalar.",
+    highlight: "No desaparecemos después del deploy.",
+  },
+];
+---
+
+<section class="process" id="proceso">
+  <div class="process__inner">
+    <div class="process__header" data-reveal>
+      <span class="process__label">— Cómo trabajamos</span>
+      <h2 class="process__heading">Un proceso<br/><em>sin sorpresas</em></h2>
+    </div>
+
+    <div class="process__grid">
+      {steps.map((s, i) => (
+        <div class="process__card" data-reveal data-delay={i * 80}>
+          <span class="process__num">{s.num}</span>
+          <h3 class="process__title">{s.title}</h3>
+          <p class="process__desc">{s.desc}</p>
+          <span class="process__highlight">{s.highlight}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .process {
+    padding: 6rem 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .process__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .process__header {
+    margin-bottom: 3rem;
+  }
+  .process__label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .process__heading {
+    font-family: var(--font-head);
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--text);
+  }
+  .process__heading em {
+    font-style: normal;
+    color: #6b7280;
+  }
+
+  .process__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .process__card {
+    background: var(--bg);
+    padding: 2.5rem;
+    transition: background 0.25s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .process__card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .process__card:hover { background: var(--surface); }
+  .process__card:hover::after { transform: scaleX(1); }
+
+  .process__num {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    color: #6b7280;
+    font-family: var(--font-mono);
+  }
+  .process__title {
+    font-family: var(--font-head);
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    font-weight: 700;
+    color: #e8eaed;
+    margin-top: 0.25rem;
+  }
+  .process__desc {
+    font-size: clamp(0.8rem, 1.5vw, 0.88rem);
+    color: #9ca3af;
+    line-height: 1.8;
+    flex: 1;
+  }
+  .process__highlight {
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin-top: 0.5rem;
+    display: block;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .process__card:hover .process__highlight {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 900px) {
+    .process__card { padding: 2rem; }
+  }
+
+  @media (max-width: 640px) {
+    .process { padding: 4rem 1rem; }
+    .process__grid { grid-template-columns: 1fr; }
+    .process__card { padding: 1.75rem 1.25rem; }
+    .process__highlight {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

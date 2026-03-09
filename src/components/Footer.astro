@@ -1,0 +1,136 @@
+---
+---
+<footer class="footer">
+  <div class="footer__inner">
+
+    <div class="footer__main">
+      <div class="footer__brand" data-reveal>
+        <a href="#" class="footer__logo">
+          <span class="footer__logo-mark">N</span>ullko
+        </a>
+        <p class="footer__tagline">Código que construye negocios.</p>
+        <p class="footer__location">Bogotá, Colombia 🇨🇴</p>
+      </div>
+
+      <nav class="footer__nav" data-reveal data-delay="80">
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="footer__contact-col" data-reveal data-delay="160">
+        <a href="mailto:hola@nullko.co">hola@nullko.co</a>
+        <a href="https://wa.me/573000000000">+57 300 000 0000</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2026 Nullko. Todos los derechos reservados.</span>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 5rem 1.5rem 2.5rem;
+  }
+  .footer__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer__main {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+    align-items: start;
+  }
+
+  /* Brand */
+  .footer__logo {
+    font-family: var(--font-head);
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #e8eaed;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+  .footer__logo-mark { color: var(--accent); }
+
+  .footer__tagline {
+    font-size: 0.82rem;
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 0.4rem;
+  }
+  .footer__location {
+    font-size: 0.72rem;
+    color: #3a4048;
+    letter-spacing: 0.04em;
+  }
+
+  /* Nav links */
+  .footer__nav,
+  .footer__contact-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding-top: 0.2rem;
+  }
+  .footer__nav a,
+  .footer__contact-col a {
+    font-size: 0.82rem;
+    color: #6b7280;
+    transition: color 0.2s ease;
+    position: relative;
+    width: fit-content;
+  }
+  .footer__nav a::after,
+  .footer__contact-col a::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0;
+    width: 0; height: 1px;
+    background: var(--accent);
+    transition: width 0.25s ease;
+  }
+  .footer__nav a:hover,
+  .footer__contact-col a:hover { color: #e8eaed; }
+  .footer__nav a:hover::after,
+  .footer__contact-col a:hover::after { width: 100%; }
+
+  /* Bottom */
+  .footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer__copy {
+    font-size: 0.68rem;
+    color: #3a4048;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 768px) {
+    .footer__main {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .footer__brand { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 480px) {
+    .footer { padding: 3.5rem 1rem 2rem; }
+    .footer__main {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .footer__brand { grid-column: auto; }
+  }
+</style>
